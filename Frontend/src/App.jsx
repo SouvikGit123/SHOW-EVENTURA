@@ -6,6 +6,8 @@ import MovieDetails from "./pages/MovieDetails";
 import SeatLayout from "./pages/SeatLayout";
 import MyBookings from "./pages/MyBookings";
 import Favorite from "./pages/Favorite";
+import Faq from './pages/Faq';
+import Faqs from './pages/Faqs'
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer";
 import Layout from "./pages/admin/Layout";
@@ -19,7 +21,6 @@ import Loading from "./components/Loading";
 
 const App = () => {
   const isAdminRoute = useLocation().pathname.startsWith("/admin");
-
   const { user } = useAppContext();
 
   return (
@@ -28,6 +29,8 @@ const App = () => {
       {!isAdminRoute && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/faqs" element={<Faqs />} />
+           <Route path="/faq" element={<Faq />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:id" element={<MovieDetails />} />
         <Route path="/movies/:id/:date" element={<SeatLayout />} />
