@@ -7,9 +7,8 @@ const Footer = () => {
         <div className="md:max-w-96">
           <img className="w-20 h-auto" src={assets.logo} alt="logo" />
           <p className="mt-6 text-sm">
-            Lorem Ipsum has been the industry's standard dummy text ever since
-            the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.
+            Eventura is an innovative movie ticket booking website designed to provide a seamless and engaging experience for movie lovers. Eventura allows users to easily browse the latest movies, view detailed information such as ratings, genres, and trailers, and securely book tickets at their preferred theaters. Its goal is to make movie discovery and booking effortless, enjoyable, and efficient—all from one sleek digital platform.
+
           </p>
           <div className="flex items-center gap-2 mt-4">
             <img

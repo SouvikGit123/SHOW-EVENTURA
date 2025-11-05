@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import BlurCircle from "../components/BlurCircle";
 import { Heart, PlayCircleIcon, StarIcon } from "lucide-react";
 import timeFormat from "../lib/timeFormat";
 import DateSelect from "../components/DateSelect";
@@ -62,22 +61,22 @@ const MovieDetails = () => {
     <div className="px-6 md:px-16 lg:px-40 pt-30 md:pt-50">
       <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
         <img
-          src={image_base_url + show.movie.poster_path}
+          src={image_base_url + show.movie.backdrop_path}
           alt="poster"
           className="max-md:mx-auto rounded-xl h-104 max-w-70 object-cover"
         />
 
         <div className="relative flex flex-col gap-3">
-          <BlurCircle top="-100px" left="-100px" />
-          <p className="text-primary">ENGLISH</p>
+          
+          <p className="text-primary font-bold">ENGLISH | IMAX 3D</p>
           <h1 className="text-4xl font-semibold max-w-96 text-balance">
             {show.movie.title}
           </h1>
           <div className="flex items-center gap-2 text-gray-300">
             <StarIcon className="w-5 h-5 text-primary fill-primary" />
-            {show.movie.vote_average.toFixed(1)} User Rating
+            {show.movie.vote_average.toFixed(1)}
           </div>
-          <p className="text-gray-400 mt-2 text-sm leading-tight max-w-xl">
+          <p className="text-gray-200 mt-2 text-sm leading-tight max-w-xl">
             {show.movie.overview}
           </p>
 
@@ -88,15 +87,17 @@ const MovieDetails = () => {
           </p>
 
           <div className="flex items-center flex-wrap gap-4 mt-4">
-            <button className="flex items-center gap-2 px-7 py-3 text-sm bg-gray-800 hover:bg-gray-900 transition rounded-md font-medium cursor-pointer active:scale-95">
+            <button onClick={() =>
+    window.open(`https://www.youtube.com/results?search_query=${show.movie.title} trailer`, "_blank")
+  } className="flex items-center gap-2 px-7 py-3 text-sm bg-gray-800 hover:bg-gray-900 transition rounded-md font-medium cursor-pointer active:scale-95">
               <PlayCircleIcon className="w-5 h-5" />
               Watch Trailer
             </button>
             <a
               href="#dateSelect"
-              className="px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition rounded-md font-medium cursor-pointer active:scale-95"
+              className="px-10 py-3 text-lg bg-primary hover:bg-primary-dull transition rounded-md font-medium cursor-pointer active:scale-95"
             >
-              Buy Tickets
+              Choose a date
             </a>
             <button
               onClick={handleFavorite}
@@ -105,7 +106,7 @@ const MovieDetails = () => {
               <Heart
                 className={`w-5 h-5 ${
                   favoriteMovies.find((movie) => movie._id === id)
-                    ? "fill-primary text-primary"
+                    ? "fill-red-600 text-red-600"
                     : ""
                 }`}
               />
@@ -146,9 +147,9 @@ const MovieDetails = () => {
             navigate("/movies");
             scrollTo(0, 0);
           }}
-          className="px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition rounded-md font-medium cursor-pointer"
+          className="px-10 py-3 text-lg bg-primary hover:bg-primary-dull transition rounded-md font-medium cursor-pointer"
         >
-          Show more
+          Explore more Movies
         </button>
       </div>
     </div>

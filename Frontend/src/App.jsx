@@ -10,6 +10,8 @@ import Faq from './pages/Faq';
 import Faqs from './pages/Faqs'
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer";
+import Newmovie from './components/Newmovie';
+import Newdetail from './components/Newdetail';
 import Layout from "./pages/admin/Layout";
 import Dashboard from "./pages/admin/Dashboard";
 import AddShows from "./pages/admin/AddShows";
@@ -31,6 +33,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/faqs" element={<Faqs />} />
            <Route path="/faq" element={<Faq />} />
+           <Route path="/newmovie" element={<Newmovie />} />
+          <Route path="/newmovie/:id" element={<Newdetail />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:id" element={<MovieDetails />} />
         <Route path="/movies/:id/:date" element={<SeatLayout />} />

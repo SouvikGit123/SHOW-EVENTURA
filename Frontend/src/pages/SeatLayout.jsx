@@ -4,7 +4,6 @@ import { assets } from "../assets/assets";
 import Loading from "../components/Loading";
 import { ArrowRightIcon, ClockIcon } from "lucide-react";
 import isoTimeFormat from "../lib/isoTimeFormat";
-import BlurCircle from "../components/BlurCircle";
 import toast from "react-hot-toast";
 import { useAppContext } from "../context/AppContext";
 
@@ -24,6 +23,9 @@ const SeatLayout = () => {
   const [occupiedSeats, setOccupiedSeats] = useState([]);
 
   const navigate = useNavigate();
+const {
+    image_base_url,
+  } = useAppContext();
 
   const { axios, getToken, user } = useAppContext();
 
@@ -125,18 +127,18 @@ const SeatLayout = () => {
   }, [selectedTime]);
 
   return show ? (
-    <div className="flex flex-col md:flex-row px-6 md:px-16 lg:px-40 py-30 md:pt-50">
+    <div className="flex flex-col md:flex-row px-6 md:px-16 lg:px-40 py-30 md:pt-50 bg-center bg-cover" style={{backgroundImage:`url(${image_base_url + show.movie.poster_path})`}}>
       {/* Available Timings */}
-      <div className="w-60 bg-primary/10 border border-primary/20 rounded-lg py-10 h-max md:sticky md:top-30">
-        <p className="text-lg font-semibold px-6">Available Timings</p>
+      <div className="w-60 bg-black border border-primary/20 rounded-lg py-10 h-max md:sticky md:top-30">
+        <p className="text-xl font-semibold px-6">Available Timing(s)</p>
         <div className="mt-5 space-y-1">
           {show.dateTime[date].map((item) => (
             <div
               key={item.time}
               onClick={() => setSelectedTime(item)}
-              className={`flex items-center gap-2 px-6 py-2 w-max rounded-r-md cursor-pointer transition ${
+              className={`flex items-center text-lg gap-2 px-6 py-2 w-max rounded-r-md cursor-pointer transition ${
                 selectedTime?.time === item.time
-                  ? "bg-primary text-white"
+                  ? "bg-primary text-blue-950"
                   : "hover:bg-primary/20"
               }`}
             >
@@ -149,8 +151,7 @@ const SeatLayout = () => {
 
       {/* Seats Layout */}
       <div className="relative flex-1 flex flex-col items-center max-md:mt-16">
-        <BlurCircle top="-100px" left="-100px" />
-        <BlurCircle bottom="0" right="0" />
+        
         <h1 className="text-2xl font-semibold mb-4">Select your seat</h1>
         <img src={assets.screenImage} alt="screen" />
         <p className="text-gray-400 text-sm mb-6">SCREEN SIDE</p>
@@ -165,9 +166,10 @@ const SeatLayout = () => {
           </div>
         </div>
 
+
         <button
           onClick={bookTickets}
-          className="flex items-center gap-1 mt-20 px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer active:scale-95"
+          className="flex items-center text-blue-950 text-lg gap-1 mt-20 px-10 py-3 bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer active:scale-95"
         >
           Proceed to Checkout
           <ArrowRightIcon strokeWidth={3} className="w-4 h-4" />

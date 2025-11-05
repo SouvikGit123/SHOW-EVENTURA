@@ -1,5 +1,4 @@
 import React from "react";
-import './assets/css/Newdetail.css';
 import { useParams,Link } from 'react-router-dom';
 import { newdata } from './Newdata';
 import {AiFillLike} from 'react-icons/ai';
@@ -12,7 +11,7 @@ const Newdetail = () => {
         return <p>Not found</p>;
       }
     
-  return <div className="detail-main">
+  return <div className="min-h-screen w-full bg-black text-white">
     <Link to="/" className="h-8 w-40 bg-linear-65 from-purple-900 to-pink-700 rounded-xl flex text-xl font-mono items-center justify-center m-4">Back to Home</Link>
           <div className="min-h-110 w-full flex flex-row items-center justify-evenly relative top-1">
             <img src={movie.bgimg} alt={movie.moviename} className="h-105 w-75 object-cover object-top rounded-lg" />

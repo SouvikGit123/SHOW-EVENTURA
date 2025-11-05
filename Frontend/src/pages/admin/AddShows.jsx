@@ -111,7 +111,7 @@ const AddShows = () => {
   return nowPlayingMovies.length > 0 ? (
     <>
       <Title text1="Add" text2="Shows" />
-      <p className="mt-10 text-lg font-medium">Now Playing Movies</p>
+      <p className="mt-10 text-xl font-semibold">Now Playing Movies</p>
       <div className="overflow-x-auto pb-4">
         <div className="group flex flex-wrap gap-4 mt-4 w-max">
           {nowPlayingMovies.map((movie) => (
@@ -141,7 +141,7 @@ const AddShows = () => {
                   <CheckIcon className="w-4 h-4 text-white" strokeWidth={2.5} />
                 </div>
               )}
-              <p className="font-medium truncate">{movie.title}</p>
+              <p className="font-semibold text-lg truncate">{movie.title}</p>
               <p className="text-gray-400 text-sm">{movie.release_date}</p>
             </div>
           ))}
@@ -150,7 +150,7 @@ const AddShows = () => {
 
       {/* Show Price Input */}
       <div className="mt-8">
-        <label className="block text-sm font-medium mb-2">Show Price</label>
+        <label className="block text-lg font-medium mb-2">Show Price</label>
         <div className="inline-flex items-center gap-2 border border-gray-600 px-3 py-2 rounded-md">
           <p className="text-gray-400 text-sm">{currency}</p>
           <input
@@ -166,7 +166,7 @@ const AddShows = () => {
 
       {/* Date & Time Selection */}
       <div className="mt-6">
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-lg font-medium mb-2">
           Select Date and Time
         </label>
         <div className="inline-flex gap-5 border border-gray-600 p-1 pl-3 rounded-lg">
@@ -188,7 +188,7 @@ const AddShows = () => {
       {/* Display Selected Times */}
       {Object.keys(dateTimeSelection).length > 0 && (
         <div className="mt-6">
-          <h2 className="mb-2">Selected Date-Time</h2>
+          <h2 className="mb-2 text-lg">Selected Date-Time</h2>
           <ul className="space-y-3">
             {Object.entries(dateTimeSelection).map(([date, times]) => (
               <li key={date}>
@@ -217,7 +217,7 @@ const AddShows = () => {
       <button
         onClick={handleSubmit}
         disabled={addingShow}
-        className="bg-primary text-white px-8 py-2 mt-6 rounded hover:bg-primary/90 transition-all cursor-pointer"
+        className="bg-primary text-lg text-black px-8 py-2 mt-6 rounded hover:bg-primary/90 transition-all cursor-pointer"
       >
         Add Show
       </button>

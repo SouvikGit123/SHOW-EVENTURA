@@ -9,8 +9,8 @@ import { NavLink } from "react-router-dom";
 
 const AdminSidebar = () => {
   const user = {
-    firstName: "Admin",
-    lastName: "User",
+    firstName: "Souvik",
+    lastName: "Mitra",
     imageUrl: assets.profile,
   };
 
@@ -32,17 +32,17 @@ const AdminSidebar = () => {
         src={user.imageUrl}
         alt="sidebar"
       />
-      <p className="mt-2 text-base max-md:hidden">
+      <p className="mt-2 max-md:hidden text-xl">
         {user.firstName} {user.lastName}
       </p>
-      <div className="w-full">
+      <div className="w-full text-lg">
         {adminNavlinks.map((link, index) => (
           <NavLink
             key={index}
             to={link.path}
             end
             className={({ isActive }) =>
-              `relative flex items-center max-md:justify-center gap-2 w-full py-2.5 min-md:pl-10 first:mt-6 text-gray-400 ${
+              `relative flex items-center max-md:justify-center gap-2 w-full py-2.5 md:pl-10 first:mt-6 text-gray-400 ${
                 isActive && "bg-primary/15 text-primary group"
               }`
             }
