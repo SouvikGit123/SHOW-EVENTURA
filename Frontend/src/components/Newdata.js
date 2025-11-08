@@ -141,7 +141,7 @@ moviegenre:"Comedy, Animation, Adventure",
 movielang:"ENGLISH",
 moviedesc:"Detectives Judy Hopps and Nick Wilde are back on the case when a cryptic reptilian newcomer slithers into Zootopia, causing chaos in the mammal metropolis. As they dig deeper, the duo uncovers secrets that could change the city forever.",
 trailerlink:"https://youtu.be/bIWlll5XcOI?si=sRMZdOi8DPhWS-Xd",
-movieimg:"https://biz2.allplaynews.com/wp-content/uploads/2025/02/117533.jpg",
+movieimg:"https://gizmodo.com/app/uploads/2025/07/Zootopia-2-Disney.jpg",
 bgimg:"https://static1.srcdn.com/wordpress/wp-content/uploads/2025/05/zootopia-2-poster.jpg",
 reldate:"26 Nov 2025",
 cast:[

@@ -3,9 +3,11 @@ import {newdata} from './Newdata';
 import {Link} from 'react-router-dom';
 const Newmovie = () => {
 return (
-<div className='h-auto hw-full'>
+<div className='h-auto w-full'>
+
 <h1 className='text-2xl font-sans font-bold text-center' style={{paddingTop:'7px'}}>Upcoming Movies</h1>
-  <div className='grid grid-cols-4' style={{gap:'20px' , padding:'30px'}}>
+  {/* <div className='grid grid-cols-4' style={{gap:'20px' , padding:'30px'}}> */}
+   <div className="flex flex-wrap max-sm:justify-center gap-8 mt-8 px-6">
     {newdata.map((newmovie) => (
         <Link to={`/newmovie/${newmovie.id}`} onClick={() => {
             scrollTo(0, 0);

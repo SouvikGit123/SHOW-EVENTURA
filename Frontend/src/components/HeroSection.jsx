@@ -53,15 +53,76 @@ const HeroSection = () => {
   };
   const slide = slides[current];
   return (
-    <div className='flex flex-row items-center justify-center gap-4 px-6 md:px-16 lg:px-36 bg-cover bg-center h-screen' style={{backgroundImage: `url(${slide.image})`}}>
-<button className='flex h-11 w-20 bg-purple-800 rounded-full text-2xl items-center justify-center' onClick={prevSlide}><FaLessThan /></button>
-<div className="flex flex-col gap-4">
-<h1 className='text-5xl flex font-extrabold font-sans' style={{color:slide.styles.hcolor}}>{slide.title}</h1>
-<p className='text-xl flex font-bold font-serif' style={{color:slide.styles.pcolor}}>{slide.description}</p>
-<a className='text-3xl font-semibold font-serif' href={slide.link} target='_blank' style={{color:slide.styles.tcolor}}>Watch Trailer</a>
-</div>
-<button className='flex h-10 w-20 bg-indigo-800 rounded-full text-2xl items-center justify-center' onClick={nextSlide}><FaGreaterThan /></button>
+//     <div className='flex flex-row items-center justify-center gap-4 px-6 md:px-16 lg:px-36 bg-cover bg-center h-screen' style={{backgroundImage: `url(${slide.image})`}}>
+// <button className='flex h-11 w-20 bg-purple-800 rounded-full text-2xl items-center justify-center' onClick={prevSlide}><FaLessThan /></button>
+// <div className="flex flex-col gap-4">
+// <h1 className='text-5xl flex font-extrabold font-sans' style={{color:slide.styles.hcolor}}>{slide.title}</h1>
+// <p className='text-xl flex font-bold font-serif' style={{color:slide.styles.pcolor}}>{slide.description}</p>
+// <a className='text-3xl font-semibold font-serif' href={slide.link} target='_blank' style={{color:slide.styles.tcolor}}>Watch Trailer</a>
+// </div>
+// <button className='flex h-10 w-20 bg-indigo-800 rounded-full text-2xl items-center justify-center' onClick={nextSlide}><FaGreaterThan /></button>
+//     </div>
+<div
+  className='flex flex-col md:flex-row items-center justify-center gap-6 px-4 md:px-16 lg:px-36 bg-cover bg-center h-screen text-center md:text-left'
+  style={{ backgroundImage: `url(${slide.image})` }}
+>
+  {/* Left button (visible only on md and up) */}
+  <button
+    className='hidden md:flex h-11 w-20 bg-purple-800 rounded-full text-2xl items-center justify-center'
+    onClick={prevSlide}
+  >
+    <FaLessThan />
+  </button>
+
+  {/* Text content */}
+  <div className='flex flex-col gap-4 max-w-xs sm:max-w-sm md:max-w-lg'>
+    <h1
+      className='text-3xl sm:text-4xl md:text-5xl font-extrabold font-sans'
+      style={{ color: slide.styles.hcolor }}
+    >
+      {slide.title}
+    </h1>
+    <p
+      className='text-base sm:text-lg md:text-xl font-bold font-serif'
+      style={{ color: slide.styles.pcolor }}
+    >
+      {slide.description}
+    </p>
+    <a
+      className='text-xl sm:text-2xl md:text-3xl font-semibold font-serif'
+      href={slide.link}
+      target='_blank'
+      style={{ color: slide.styles.tcolor }}
+    >
+      Watch Trailer
+    </a>
+
+    {/* Buttons below content (only on mobile) */}
+    <div className='flex md:hidden items-center justify-center gap-6 mt-4'>
+      <button
+        className='flex h-10 w-16 bg-purple-800 rounded-full text-2xl items-center justify-center'
+        onClick={prevSlide}
+      >
+        <FaLessThan />
+      </button>
+      <button
+        className='flex h-10 w-16 bg-indigo-800 rounded-full text-2xl items-center justify-center'
+        onClick={nextSlide}
+      >
+        <FaGreaterThan />
+      </button>
     </div>
+  </div>
+
+  {/* Right button (visible only on md and up) */}
+  <button
+    className='hidden md:flex h-10 w-20 bg-indigo-800 rounded-full text-2xl items-center justify-center'
+    onClick={nextSlide}
+  >
+    <FaGreaterThan />
+  </button>
+</div>
+
   );
 };
 
